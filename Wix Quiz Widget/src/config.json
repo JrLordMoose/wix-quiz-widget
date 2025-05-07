@@ -1,0 +1,119 @@
+{
+  "defaultProps": {
+    "primaryColor": "#5e4b8b",
+    "quizTitle": "Discover Your Type!",
+    "showEmailField": true,
+    "questions": [
+      {
+        "text": "How do you prefer to spend your free time?",
+        "options": [
+          {
+            "text": "Exploring new places and trying new activities",
+            "type": "Explorer"
+          },
+          {
+            "text": "Meeting with friends and socializing",
+            "type": "Connector"
+          },
+          {
+            "text": "Working on personal projects and goals",
+            "type": "Achiever"
+          },
+          {
+            "text": "Learning new skills and experimenting",
+            "type": "Innovator"
+          }
+        ]
+      },
+      {
+        "text": "What's your approach to problem-solving?",
+        "options": [
+          {
+            "text": "I like to try different approaches and see what works",
+            "type": "Explorer"
+          },
+          {
+            "text": "I prefer to discuss with others and get their input",
+            "type": "Connector"
+          },
+          {
+            "text": "I follow a structured, step-by-step process",
+            "type": "Achiever"
+          },
+          {
+            "text": "I look for creative, out-of-the-box solutions",
+            "type": "Innovator"
+          }
+        ]
+      },
+      {
+        "text": "What motivates you the most?",
+        "options": [
+          {
+            "text": "New experiences and adventures",
+            "type": "Explorer"
+          },
+          {
+            "text": "Building relationships and connections",
+            "type": "Connector"
+          },
+          {
+            "text": "Achieving goals and recognition",
+            "type": "Achiever"
+          },
+          {
+            "text": "Creating and innovating",
+            "type": "Innovator"
+          }
+        ]
+      }
+    ],
+    "personalityTypes": {
+      "Explorer": {
+        "description": "You're adventurous and love trying new things!",
+        "productTags": ["adventure", "exploration", "travel"]
+      },
+      "Connector": {
+        "description": "You're social and great at building relationships!",
+        "productTags": ["social", "communication", "networking"]
+      },
+      "Achiever": {
+        "description": "You're goal-oriented and driven to succeed!",
+        "productTags": ["productivity", "organization", "success"]
+      },
+      "Innovator": {
+        "description": "You're creative and love thinking outside the box!",
+        "productTags": ["creativity", "innovation", "design"]
+      }
+    }
+  },
+  "collections": {
+    "Leads": {
+      "fields": {
+        "email": "text",
+        "personalityType": "text",
+        "quizAnswers": "array",
+        "quizVersion": "text",
+        "sourceSiteId": "text",
+        "createdAt": "datetime",
+        "submitted": "boolean"
+      }
+    },
+    "Products": {
+      "fields": {
+        "title": "text",
+        "description": "text",
+        "tags": "array",
+        "image": "image",
+        "price": "number"
+      }
+    },
+    "Quizzes": {
+      "fields": {
+        "version": "text",
+        "questions": "array",
+        "active": "boolean"
+      }
+    }
+  }
+} 
