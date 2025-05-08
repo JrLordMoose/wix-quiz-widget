@@ -63,4 +63,47 @@ export function getQuizVersion(version) {
             console.error('Error fetching quiz version:', error);
             throw error;
         });
+}
+
+export function savePartialLead(partialData) {
+    if (!partialData || !partialData.quizAnswers) {
+        throw new Error('Partial data and quizAnswers are required');
+    }
+    const partialLead = {
+        email: partialData.email || '',
+        quizAnswers: partialData.quizAnswers,
+        quizVersion: partialData.quizVersion || '1.0',
+        sourceSiteId: partialData.sourceSiteId || '',
+        createdAt: new Date(),
+        submitted: false
+    };
+    return wixData.insert('Leads', partialLead)
+        .then(result => {
+            console.log('Partial lead saved:', result);
+            return result;
+        })
+        .catch(error => {
+            console.error('Error saving partial lead:', error);
+            throw error;
+        });
+}
+
+export async function exportLeadsToCSV() {
+    try {
+        const results = await wixData.query('Leads').find();
+        const leads = results.items;
+        if (!leads.length) return '';
+        // Get all unique keys for CSV header
+        const keys = Array.from(new Set(leads.flatMap(Object.keys)));
+        // CSV header
+        const header = keys.join(',');
+        // CSV rows
+        const rows = leads.map(lead => keys.map(k => JSON.stringify(lead[k] ?? '')).join(','));
+        const csv = [header, ...rows].join('\n');
+        console.log('Leads exported to CSV');
+        return csv;
+    } catch (error) {
+        console.error('Error exporting leads to CSV:', error);
+        throw error;
+    }
 } 
