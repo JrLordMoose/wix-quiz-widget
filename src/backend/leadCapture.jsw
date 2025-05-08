@@ -63,7 +63,7 @@ export function getQuizVersion(version) {
             console.error('Error fetching quiz version:', error);
             throw error;
         });
-}
+} 
 
 export function savePartialLead(partialData) {
     if (!partialData || !partialData.quizAnswers) {

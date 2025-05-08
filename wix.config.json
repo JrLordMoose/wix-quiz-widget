@@ -1,0 +1,20 @@
+{
+  "name": "quiz-widget",
+  "version": "1.0.0",
+  "type": "widget",
+  "public": true,
+  "widget": {
+    "name": "Quiz Widget",
+    "description": "Interactive quiz widget with product recommendations",
+    "version": "1.0.0",
+    "main": "dist/QuizWidget.js",
+    "viewer": {
+      "entry": "dist/QuizWidget.js",
+      "component": "QuizWidget"
+    },
+    "editor": {
+      "entry": "dist/QuizWidget.editor.js",
+      "component": "QuizWidgetEditor"
+    }
+  }
+} 

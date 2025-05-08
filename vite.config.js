@@ -9,6 +9,22 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    lib: {
+      entry: {
+        QuizWidget: 'src/public/QuizWidget.jsx',
+        QuizWidgetEditor: 'src/public/QuizWidgetEditor.jsx'
+      },
+      formats: ['es'],
+      fileName: (format, entryName) => `${entryName}.js`
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
   }
 }); 
